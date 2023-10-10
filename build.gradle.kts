@@ -23,7 +23,7 @@ dependencies {
 }
 
 group = "com.example"
-version = "1.0.0"
+version = "1.0.1"
 var mainClass = "${rootProject.group}.${rootProject.name.lowercase()}.Example"
 var pluginVersion: String = version.toString() + "-" + SimpleDateFormat("yyyyMMdd").format(System.currentTimeMillis())
 java.sourceCompatibility = JavaVersion.VERSION_1_8
@@ -49,6 +49,10 @@ tasks {
         options.encoding = "UTF-8"
     }
     shadowJar {
-        relocate("crypticlib", "${rootProject.group}.crypticlib")
+        relocate("crypticlib", "${rootProject.group}.${rootProject.name.lowercase()}.crypticlib")
+        archiveFileName.set("${rootProject.name}-${version}.jar")
+    }
+    assemble {
+        dependsOn(shadowJar)
     }
 }
