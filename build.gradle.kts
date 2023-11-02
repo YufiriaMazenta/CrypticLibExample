@@ -15,15 +15,14 @@ repositories {
     mavenCentral()
 }
 
-
 dependencies {
     compileOnly("org.jetbrains:annotations:24.0.1")
-    compileOnly("org.spigotmc:spigot-api:1.20.1-R0.1-SNAPSHOT")
-    implementation("com.github.YufiriaMazenta:CrypticLib:1.0.5")
+    compileOnly("org.spigotmc:spigot-api:1.20-R0.1-SNAPSHOT")
+    implementation("com.github.YufiriaMazenta:CrypticLib:1.0.9")
 }
 
 group = "com.example"
-version = "1.0.1"
+version = "1.0.2"
 var mainClass = "${rootProject.group}.${rootProject.name.lowercase()}.Example"
 var pluginVersion: String = version.toString() + "-" + SimpleDateFormat("yyyyMMdd").format(System.currentTimeMillis())
 java.sourceCompatibility = JavaVersion.VERSION_1_8
