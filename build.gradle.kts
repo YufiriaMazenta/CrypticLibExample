@@ -10,15 +10,17 @@ repositories {
     mavenLocal()
     maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
     maven("https://oss.sonatype.org/content/groups/public/")
-    maven("https://jitpack.io")
     maven("https://repo.maven.apache.org/maven2/")
+    maven("http://repo.crypticlib.com:8081/repository/maven-public/") {
+        isAllowInsecureProtocol = true
+    }
     mavenCentral()
 }
 
 dependencies {
     compileOnly("org.jetbrains:annotations:24.0.1")
     compileOnly("org.spigotmc:spigot-api:1.20-R0.1-SNAPSHOT")
-    implementation("com.crypticlib:crypticlib:0.0.1")
+    implementation("com.crypticlib:CrypticLib:0.0.1")
 }
 
 group = "com.example"
