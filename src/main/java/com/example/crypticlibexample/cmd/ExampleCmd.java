@@ -15,7 +15,7 @@ import java.util.Map;
 
 @BukkitCommand(
         name = "example",
-        permission = "crypticlib.example",
+        permission = "example.command",
         alias = "exa",
         usage = "/example or /exa",
         description = "Example command"
