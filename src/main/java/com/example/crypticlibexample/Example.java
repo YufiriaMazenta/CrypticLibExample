@@ -25,7 +25,8 @@ public class Example extends BukkitPlugin {
                 .regSub("test", (sender, args) -> {
                     MsgUtil.sendMsg(sender, "CrypticLib Test Test!");
                     return true;
-                }))
+                })
+                .setPermission("example.command.test"))
             .regSub("test2", (sender, args) -> {
                 MsgUtil.sendMsg(sender, "CrypticLib Test2!");
                 return true;
