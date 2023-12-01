@@ -25,6 +25,7 @@ public class Example extends BukkitPlugin {
     public void enable() {
         new RootCmdExecutor()
             .setExecutor((sender, args) -> {
+                reloadConfig();
                 MsgUtil.sendMsg(sender, Configs.test.value());
                 return true;
             })
