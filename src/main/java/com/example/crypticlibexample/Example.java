@@ -23,10 +23,9 @@ public class Example extends BukkitPlugin {
 
     @Override
     public void enable() {
-        saveDefaultConfig();
         new RootCmdExecutor()
             .setExecutor((sender, args) -> {
-                MsgUtil.sendMsg(sender, "Hello, CrypticLib!");
+                MsgUtil.sendMsg(sender, Configs.test.value());
                 return true;
             })
             .regSub(subcommand("test")
