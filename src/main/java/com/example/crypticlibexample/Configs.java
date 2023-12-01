@@ -1,7 +1,7 @@
 package com.example.crypticlibexample;
 
-import crypticlib.config.YamlConfigHandler;
-import crypticlib.config.entry.StringConfigEntry;
+import crypticlib.config.yaml.YamlConfigHandler;
+import crypticlib.config.yaml.entry.StringConfigEntry;
 
 @YamlConfigHandler(path = "settings.yml")
 public class Configs {
