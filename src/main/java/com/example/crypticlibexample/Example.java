@@ -3,6 +3,8 @@ package com.example.crypticlibexample;
 import crypticlib.BukkitPlugin;
 import crypticlib.command.CommandInfo;
 import crypticlib.command.impl.RootCmdExecutor;
+import crypticlib.nms.item.ItemFactory;
+import crypticlib.nms.item.NbtItem;
 import crypticlib.ui.display.Icon;
 import crypticlib.ui.display.MenuDisplay;
 import crypticlib.ui.display.MenuLayout;
@@ -57,7 +59,11 @@ public class Example extends BukkitPlugin {
                 .setPermission("example.command.test")
                 .addTabArguments("abc"))
             .regSub("test2", (sender, args) -> {
-                MsgUtil.sendMsg(sender, "CrypticLib Test2!");
+                Player player = (Player) sender;
+                ItemStack item = player.getInventory().getItemInMainHand();
+                NbtItem nbtItem = ItemFactory.item(item);
+                nbtItem.nbtTagCompound().set("abc", "abc");
+                nbtItem.saveNbtToBukkit();
                 return true;
             })
             .register(
