@@ -1,11 +1,20 @@
 package com.example.crypticlibexample;
 
-import crypticlib.config.yaml.YamlConfigHandler;
-import crypticlib.config.yaml.entry.StringConfigEntry;
+import crypticlib.chat.LangConfigEntry;
+import crypticlib.chat.LangConfigHandler;
 
-@YamlConfigHandler(path = "settings.yml")
+import java.util.HashMap;
+import java.util.Map;
+
+@LangConfigHandler(langFileFolder = "lang")
 public class Configs {
 
-    public static final StringConfigEntry test = new StringConfigEntry("test", "config test");
+    public static final LangConfigEntry test = new LangConfigEntry("test", "config test", () -> {
+        Map<String, String> langMap = new HashMap<>();
+        langMap.put("zh_cn", "你好");
+        langMap.put("en_us", "Hello");
+        langMap.put("zh_tw", "你好");
+        return langMap;
+    });
 
 }
