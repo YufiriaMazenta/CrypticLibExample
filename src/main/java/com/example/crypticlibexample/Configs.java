@@ -1,11 +1,11 @@
 package com.example.crypticlibexample;
 
-import crypticlib.chat.LangConfigEntry;
 import crypticlib.chat.LangConfigHandler;
+import crypticlib.chat.entry.StringLangConfigEntry;
 
 @LangConfigHandler(langFileFolder = "lang")
 public class Configs {
 
-    public static final LangConfigEntry test = new LangConfigEntry("test", "config test");
+    public static final StringLangConfigEntry test = new StringLangConfigEntry("test", "config test");
 
 }
