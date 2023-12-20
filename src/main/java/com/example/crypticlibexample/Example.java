@@ -11,12 +11,14 @@ import crypticlib.ui.display.MenuDisplay;
 import crypticlib.ui.display.MenuLayout;
 import crypticlib.ui.menu.MultipageMenu;
 import crypticlib.ui.menu.StoredMenu;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
 
 import static crypticlib.command.CommandManager.subcommand;
 
@@ -55,14 +57,13 @@ public class Example extends BukkitPlugin {
                     MessageSender.sendMsg(sender, "CrypticLib Test Test!");
                     return true;
                 })
-                .setPermission("example.command.test")
-                .addTabArguments("abc"))
+                .setPermission("example.command.test"))
             .regSub("test2", (sender, args) -> {
                 Player player = (Player) sender;
                 ItemStack item = player.getInventory().getItemInMainHand();
                 NbtItem nbtItem = ItemFactory.item(item);
                 nbtItem.nbtTagCompound().set("abc", "abc");
-                nbtItem.saveNbtToBukkit();
+                nbtItem.saveNbtToItem();
                 return true;
             })
             .regSub("gui", (sender, args) -> {
@@ -110,6 +111,7 @@ public class Example extends BukkitPlugin {
                 menu.openMenu();
                 return true;
             })
+            .setTabArgsSupplier(() -> Bukkit.getOnlinePlayers().stream().map(Player::getName).collect(Collectors.toList()))
             .register(
                 this,
                 new CommandInfo("example", "example.command", new String[]{"exa"}, "Example command", "/example or /exa")
