@@ -111,7 +111,7 @@ public class Example extends BukkitPlugin {
                 menu.openMenu();
                 return true;
             })
-            .setTabArgsSupplier(() -> Bukkit.getOnlinePlayers().stream().map(Player::getName).collect(Collectors.toList()))
+            .setTabCompleter(() -> Bukkit.getOnlinePlayers().stream().map(Player::getName).collect(Collectors.toList()))
             .register(
                 this,
                 new CommandInfo("example", "example.command", new String[]{"exa"}, "Example command", "/example or /exa")
