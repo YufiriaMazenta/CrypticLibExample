@@ -4,8 +4,12 @@ import crypticlib.BukkitPlugin;
 import crypticlib.chat.MessageSender;
 import crypticlib.command.CommandInfo;
 import crypticlib.command.impl.RootCmdExecutor;
+import crypticlib.nms.entity.NbtEntity;
+import crypticlib.nms.entity.v1_20_R1.V1_20_R1NbtEntity;
 import crypticlib.nms.item.ItemFactory;
 import crypticlib.nms.item.NbtItem;
+import crypticlib.nms.tile.NbtTileEntity;
+import crypticlib.nms.tile.v1_20_R1.V1_20_R1NbtTileEntity;
 import crypticlib.ui.display.Icon;
 import crypticlib.ui.display.MenuDisplay;
 import crypticlib.ui.display.MenuLayout;
@@ -13,6 +17,9 @@ import crypticlib.ui.menu.MultipageMenu;
 import crypticlib.ui.menu.StoredMenu;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.block.BlockState;
+import org.bukkit.block.TileState;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -32,7 +39,7 @@ public class Example extends BukkitPlugin {
                 MessageSender.sendMsg(sender, Configs.test);
                 return true;
             })
-            .regSub(subcommand("test")
+            .regSub(subcommand("stored-gui")
                 .setExecutor((sender, args) -> {
                     List<String> layout = new ArrayList<>();
                     layout.add("aaaaaaaaa");
@@ -57,8 +64,8 @@ public class Example extends BukkitPlugin {
                     MessageSender.sendMsg(sender, "CrypticLib Test Test!");
                     return true;
                 })
-                .setPermission("example.command.test"))
-            .regSub("test2", (sender, args) -> {
+                .setPermission("example.command.stored-gui"))
+            .regSub("nbt-item", (sender, args) -> {
                 Player player = (Player) sender;
                 ItemStack item = player.getInventory().getItemInMainHand();
                 NbtItem nbtItem = ItemFactory.item(item);
@@ -66,7 +73,7 @@ public class Example extends BukkitPlugin {
                 nbtItem.saveNbtToItem();
                 return true;
             })
-            .regSub("gui", (sender, args) -> {
+            .regSub("multipage-gui", (sender, args) -> {
                 List<Icon> icons = new ArrayList<>();
                 for (Material value : Material.values()) {
                     if (!value.isItem())
@@ -111,6 +118,20 @@ public class Example extends BukkitPlugin {
                 menu.openMenu();
                 return true;
             })
+            .regSub(subcommand("tile-entity")
+                .setExecutor((sender, args) -> {
+                    Block block = ((Player) sender).getLocation().getBlock();
+                    BlockState state = block.getState();
+                    if (!(state instanceof TileState))
+                        return true;
+                    NbtTileEntity tile = new V1_20_R1NbtTileEntity(state);
+                    MessageSender.sendMsg(sender, tile.nbtTagCompound().toString());
+                    tile.nbtTagCompound().set("Items", new ArrayList<>());
+                    tile.saveNbtToTileEntity();
+                    state.update();
+                    return true;
+                })
+            )
             .setTabCompleter(() -> Bukkit.getOnlinePlayers().stream().map(Player::getName).collect(Collectors.toList()))
             .register(
                 this,
