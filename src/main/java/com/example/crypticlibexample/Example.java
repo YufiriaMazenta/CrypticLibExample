@@ -3,13 +3,11 @@ package com.example.crypticlibexample;
 import crypticlib.BukkitPlugin;
 import crypticlib.chat.MessageSender;
 import crypticlib.command.CommandInfo;
-import crypticlib.command.impl.RootCmdExecutor;
-import crypticlib.nms.entity.NbtEntity;
-import crypticlib.nms.entity.v1_20_R1.V1_20_R1NbtEntity;
+import crypticlib.command.RootCmdExecutor;
 import crypticlib.nms.item.ItemFactory;
 import crypticlib.nms.item.NbtItem;
 import crypticlib.nms.tile.NbtTileEntity;
-import crypticlib.nms.tile.v1_20_R1.V1_20_R1NbtTileEntity;
+import crypticlib.nms.tile.TileEntityFactory;
 import crypticlib.ui.display.Icon;
 import crypticlib.ui.display.MenuDisplay;
 import crypticlib.ui.display.MenuLayout;
@@ -124,7 +122,7 @@ public class Example extends BukkitPlugin {
                     BlockState state = block.getState();
                     if (!(state instanceof TileState))
                         return true;
-                    NbtTileEntity tile = new V1_20_R1NbtTileEntity(state);
+                    NbtTileEntity tile = TileEntityFactory.tileEntity(state);
                     MessageSender.sendMsg(sender, tile.nbtTagCompound().toString());
                     tile.nbtTagCompound().set("Items", new ArrayList<>());
                     tile.saveNbtToTileEntity();
