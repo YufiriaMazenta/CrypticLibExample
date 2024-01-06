@@ -8,6 +8,7 @@ import crypticlib.nms.item.ItemFactory;
 import crypticlib.nms.item.NbtItem;
 import crypticlib.nms.tile.NbtTileEntity;
 import crypticlib.nms.tile.TileEntityFactory;
+import crypticlib.perm.PermDef;
 import crypticlib.ui.display.Icon;
 import crypticlib.ui.display.MenuDisplay;
 import crypticlib.ui.display.MenuLayout;
@@ -130,10 +131,29 @@ public class Example extends BukkitPlugin {
                     return true;
                 })
             )
+            .regSub(subcommand("absorption")
+                .setExecutor((sender, args) -> {
+                    Player player = (Player) sender;
+                    double amount;
+                    if (args.isEmpty())
+                        amount = 20;
+                    else
+                        amount = Double.parseDouble(args.get(0));
+                    player.setAbsorptionAmount(amount);
+                    return true;
+                })
+                .setPermission("example.command.absorption")
+                .setPermDef(PermDef.TRUE)
+            )
             .setTabCompleter(() -> Bukkit.getOnlinePlayers().stream().map(Player::getName).collect(Collectors.toList()))
             .register(
                 this,
-                new CommandInfo("example", "example.command", new String[]{"exa"}, "Example command", "/example or /exa")
+                new CommandInfo("example")
+                    .setPermission("example.command")
+                    .setPermDef(PermDef.TRUE)
+                    .setAliases(new String[]{"exa"})
+                    .setDescription("Example command")
+                    .setUsage("/example or /exa")
             );
         ;
     }
