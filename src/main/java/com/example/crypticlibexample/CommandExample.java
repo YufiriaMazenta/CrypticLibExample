@@ -6,6 +6,7 @@ import crypticlib.chat.MessageSender;
 import crypticlib.command.CommandHandler;
 import crypticlib.command.CommandInfo;
 import crypticlib.command.SubcommandHandler;
+import crypticlib.command.annotation.Command;
 import crypticlib.command.annotation.Subcommand;
 import crypticlib.nms.item.ItemFactory;
 import crypticlib.nms.item.NbtItem;
@@ -31,6 +32,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import static crypticlib.command.manager.CommandManager.subcommand;
 
 @AutoReload
+@Command
 public class CommandExample extends CommandHandler implements Reloadable {
 
     @Subcommand
