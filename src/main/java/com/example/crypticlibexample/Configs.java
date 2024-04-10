@@ -1,11 +1,12 @@
 package com.example.crypticlibexample;
 
-import crypticlib.chat.LangConfigHandler;
-import crypticlib.chat.entry.StringLangConfigEntry;
+import com.google.common.collect.Lists;
+import crypticlib.config.ConfigHandler;
+import crypticlib.config.entry.StringListConfigEntry;
 
-@LangConfigHandler(langFileFolder = "lang")
+@ConfigHandler(path = "config.yml")
 public class Configs {
 
-    public static final StringLangConfigEntry test = new StringLangConfigEntry("test", "config test");
+    public static final StringListConfigEntry LAYOUT = new StringListConfigEntry("layout", Lists.newArrayList("#### ####", "###   ###", "##     ##"));
 
 }

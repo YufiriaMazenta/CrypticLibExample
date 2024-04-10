@@ -8,6 +8,8 @@ plugins {
 
 repositories {
     mavenLocal()
+    //PlaceholderAPI
+    maven("https://repo.dmulloy2.net/repository/public/")
     maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
     maven("https://oss.sonatype.org/content/groups/public/")
     maven("https://repo.maven.apache.org/maven2/")
@@ -20,7 +22,8 @@ repositories {
 dependencies {
     compileOnly("org.jetbrains:annotations:24.0.1")
     compileOnly("org.spigotmc:spigot-api:1.20-R0.1-SNAPSHOT")
-    implementation("com.crypticlib:CrypticLib:0.15.0")
+    compileOnly("com.comphenix.protocol:ProtocolLib:5.1.0")
+    implementation("com.crypticlib:CrypticLib:0.16.6")
 }
 
 group = "com.example"
