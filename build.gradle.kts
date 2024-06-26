@@ -11,6 +11,7 @@ repositories {
     //PlaceholderAPI
     maven("https://repo.dmulloy2.net/repository/public/")
     maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
+    maven("https://repo.papermc.io/repository/maven-public/")
     maven("https://oss.sonatype.org/content/groups/public/")
     maven("https://repo.maven.apache.org/maven2/")
     maven("http://repo.crypticlib.com:8081/repository/maven-public/") {
@@ -20,18 +21,19 @@ repositories {
 }
 
 dependencies {
+    compileOnly("io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT")
     compileOnly("org.jetbrains:annotations:24.0.1")
-    compileOnly("org.spigotmc:spigot-api:1.20-R0.1-SNAPSHOT")
+//    compileOnly("org.spigotmc:spigot-api:1.20-R0.1-SNAPSHOT")
     compileOnly("com.comphenix.protocol:ProtocolLib:5.1.0")
-    implementation("com.crypticlib:CrypticLib:0.16.6")
+    implementation("com.crypticlib:common:0.18.8")
 }
 
 group = "com.example"
 version = "1.0.0"
 var mainClass = "${rootProject.group}.${rootProject.name.lowercase()}.Example"
 var pluginVersion: String = version.toString() + "-" + SimpleDateFormat("yyyyMMdd").format(System.currentTimeMillis())
-java.sourceCompatibility = JavaVersion.VERSION_1_8
-java.targetCompatibility = JavaVersion.VERSION_1_8
+java.sourceCompatibility = JavaVersion.VERSION_17
+java.targetCompatibility = JavaVersion.VERSION_17
 
 publishing {
     publications.create<MavenPublication>("maven") {
@@ -50,6 +52,7 @@ tasks {
         }
     }
     compileJava {
+        dependsOn(clean)
         options.encoding = "UTF-8"
     }
     shadowJar {
