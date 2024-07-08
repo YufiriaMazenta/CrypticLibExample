@@ -22,17 +22,15 @@ public class ExampleCommand extends BukkitCommand {
     @Subcommand
     BukkitSubCommand reload = new BukkitSubCommand("reload", new PermInfo("test.test.reload")) {
         @Override
-        public boolean execute(@NotNull CommandSender sender, @NotNull List<String> args) {
+        public void execute(@NotNull CommandSender sender, @NotNull List<String> args) {
             Example.INSTANCE.reloadPlugin();
             BukkitMsgSender.INSTANCE.sendMsg(sender, ExampleConfig.test.value());
-            return true;
         }
         @Subcommand
         BukkitSubCommand test = new BukkitSubCommand("test2") {
             @Override
-            public boolean execute(@NotNull CommandSender sender, @NotNull List<String> args) {
+            public void execute(@NotNull CommandSender sender, @NotNull List<String> args) {
                 BukkitMsgSender.INSTANCE.sendMsg(sender, ExampleConfig.test2.value().toString());
-                return true;
             }
         };
     };

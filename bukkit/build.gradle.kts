@@ -12,7 +12,7 @@ repositories {
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT")
     compileOnly("org.jetbrains:annotations:24.0.1")
-    implementation("com.crypticlib:bukkit:0.19.4")
+    implementation("com.crypticlib:bukkit:${rootProject.findProperty("crypticlibVersion")}")
 }
 
 var mainClass = "com.example.crypticlibexample.bukkit.Example"

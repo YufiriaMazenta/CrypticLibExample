@@ -1,6 +1,8 @@
 package com.example.crypticlibexample.bungee;
 
 import crypticlib.BungeePlugin;
+import crypticlib.BungeeVersion;
+import net.md_5.bungee.api.ProxyServer;
 
 public class Example extends BungeePlugin {
 
@@ -9,8 +11,7 @@ public class Example extends BungeePlugin {
     @Override
     public void enable() {
         INSTANCE = this;
-        System.out.println(ExampleConfig.test.value());
-        System.out.println(ExampleConfig.test2.value());
+        System.out.println(BungeeVersion.current().version());
     }
 
     @Override

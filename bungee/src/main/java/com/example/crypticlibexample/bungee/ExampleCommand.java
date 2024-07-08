@@ -22,17 +22,15 @@ public class ExampleCommand extends BungeeCommand {
     @Subcommand
     BungeeSubCommand reload = new BungeeSubCommand("reload", new PermInfo("test.test.reload")) {
         @Override
-        public boolean execute(@NotNull CommandSender sender, @NotNull List<String> args) {
+        public void execute(@NotNull CommandSender sender, @NotNull List<String> args) {
             Example.INSTANCE.reloadPlugin();
             BungeeMsgSender.INSTANCE.sendMsg(sender, ExampleConfig.test.value());
-            return true;
         }
         @Subcommand
         BungeeSubCommand test = new BungeeSubCommand("test2") {
             @Override
-            public boolean execute(@NotNull CommandSender sender, @NotNull List<String> args) {
+            public void execute(@NotNull CommandSender sender, @NotNull List<String> args) {
                 BungeeMsgSender.INSTANCE.sendMsg(sender, ExampleConfig.test2.value().toString());
-                return true;
             }
         };
     };

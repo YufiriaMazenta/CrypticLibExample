@@ -12,7 +12,7 @@ repositories {
 dependencies {
     compileOnly("net.md-5:bungeecord-api:1.21-R0.1-SNAPSHOT")
     compileOnly("org.jetbrains:annotations:24.0.1")
-    implementation("com.crypticlib:bungee:0.19.4")
+    implementation("com.crypticlib:bungee:${rootProject.findProperty("crypticlibVersion")}")
 }
 
 var mainClass = "com.example.crypticlibexample.bungee.Example"
