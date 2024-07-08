@@ -24,7 +24,7 @@ dependencies {
     compileOnly("io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT")
     compileOnly("org.jetbrains:annotations:24.0.1")
 //    compileOnly("org.spigotmc:spigot-api:1.20-R0.1-SNAPSHOT")
-    implementation("com.crypticlib:bukkit:0.19.2")
+    implementation("com.crypticlib:bukkit:0.19.3")
 }
 
 group = "com.example"
