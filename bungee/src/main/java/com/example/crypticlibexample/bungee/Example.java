@@ -1,8 +1,8 @@
-package com.example.crypticlibexample;
+package com.example.crypticlibexample.bungee;
 
-import crypticlib.BukkitPlugin;
+import crypticlib.BungeePlugin;
 
-public class Example extends BukkitPlugin {
+public class Example extends BungeePlugin {
 
     public static Example INSTANCE;
 

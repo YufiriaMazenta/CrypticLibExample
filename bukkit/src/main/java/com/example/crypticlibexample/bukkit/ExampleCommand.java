@@ -1,4 +1,4 @@
-package com.example.crypticlibexample;
+package com.example.crypticlibexample.bukkit;
 
 import crypticlib.chat.BukkitMsgSender;
 import crypticlib.command.BukkitCommand;

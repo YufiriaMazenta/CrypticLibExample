@@ -1,8 +1,8 @@
-package com.example.crypticlibexample;
+package com.example.crypticlibexample.bukkit;
 
 import crypticlib.config.ConfigHandler;
-import crypticlib.config.node.impl.StringConfig;
-import crypticlib.config.node.impl.StringListConfig;
+import crypticlib.config.node.impl.bukkit.StringConfig;
+import crypticlib.config.node.impl.bukkit.StringListConfig;
 
 import java.util.Arrays;
 import java.util.List;
