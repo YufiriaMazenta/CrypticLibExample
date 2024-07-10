@@ -1,4 +1,4 @@
-package com.example.crypticlibexample.bukkit;
+package com.example.crypticlibexample;
 
 import crypticlib.config.ConfigHandler;
 import crypticlib.config.node.impl.bukkit.StringConfig;
