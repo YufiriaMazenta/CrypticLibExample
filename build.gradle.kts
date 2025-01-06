@@ -1,17 +1,13 @@
-import java.text.SimpleDateFormat
-
 plugins {
     id("java-library")
     id("maven-publish")
     id("com.github.johnrengelman.shadow").version("7.1.2")
 }
 
-group = "com.example"
-version = "1.0.0"
+rootProject.group = rootProject.findProperty("group").toString()
+rootProject.version = rootProject.findProperty("version")!!
 java.sourceCompatibility = JavaVersion.VERSION_17
 java.targetCompatibility = JavaVersion.VERSION_17
-var mainClass = "com.example.crypticlibexample.Example"
-var pluginVersion: String = version.toString() + "-" + SimpleDateFormat("yyyyMMdd").format(System.currentTimeMillis())
 
 repositories {
     mavenLocal()
@@ -48,8 +44,8 @@ tasks {
         archiveFileName.set("${rootProject.name}-${rootProject.version}.jar")
     }
     val props = HashMap<String, String>()
-    props["version"] = pluginVersion
-    props["main"] = mainClass
+    props["version"] = rootProject.version.toString()
+    props["main"] = rootProject.findProperty("main").toString()
     props["name"] = rootProject.name
     processResources {
         filesMatching("plugin.yml") {
