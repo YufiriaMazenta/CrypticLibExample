@@ -38,7 +38,7 @@ tasks {
         dependsOn(shadowJar)
     }
     shadowJar {
-        relocate("crypticlib", "${rootProject.group}.${rootProject.name.lowercase()}.crypticlib")
+        relocate("crypticlib", rootProject.findProperty("crypticlibRelocatePackage").toString())
         archiveFileName.set("${rootProject.name}-${rootProject.version}.jar")
     }
     val props = HashMap<String, String>()
