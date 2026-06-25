@@ -3,6 +3,8 @@ package com.example.crypticlibexample;
 import crypticlib.BukkitPlugin;
 import crypticlib.CrypticLibBukkit;
 import crypticlib.MinecraftVersion;
+import crypticlib.libloader.LibLoader;
+import crypticlib.libloader.Library;
 import crypticlib.listener.EventListener;
 import crypticlib.util.IOHelper;
 import org.bukkit.event.Listener;
