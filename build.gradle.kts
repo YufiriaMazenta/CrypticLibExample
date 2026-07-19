@@ -1,3 +1,4 @@
+
 plugins {
     id("java-library")
     id("maven-publish")
@@ -13,9 +14,7 @@ repositories {
     mavenLocal()
     maven("https://repo.papermc.io/repository/maven-public/")
     //CrypticLib
-    maven("http://110.42.10.241:8082/repository/maven-public/") {
-        isAllowInsecureProtocol = true
-    }
+    maven("https://repo.crypticlib.incrafttime.top/repository/maven-public/")
     mavenCentral()
 }
 
