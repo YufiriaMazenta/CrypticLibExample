@@ -15,10 +15,10 @@ public final class Example extends BukkitPlugin implements Listener {
             DependencyLoader.INSTANCE.loadDependency(
                 Dependency
                     .builder("org.jetbrains.kot#lin", "kot#lin-stdlib", "2.4.10")
-                    .test("!kotlin.KotlinVersion")
+                    .test("!kot#lin2420%Kot#linVersion")
                     .repository(Dependency.REPOSITORY_MAVEN_CENTRAL)
                     .repository(Dependency.REPOSITORY_MAVEN_CENTRAL_MIRROR_ALI)
-                    .relocate("kot#lin", "kot#lin2410")
+                    .relocate("kot#lin", "kot#lin2420")
                     .relocate("org%intellij%lang%annotations", "example%libs%intellij%lang%annotations")
                     .relocate("org%jetbrains%annotations", "example%libs%jetbrains%annotations")
                     .build()

@@ -40,7 +40,7 @@ tasks {
     }
     shadowJar {
         relocate("crypticlib", rootProject.findProperty("crypticlibRelocatePackage").toString())
-        relocate("kotlin", "kotlin2410")
+        relocate("kotlin", "kotlin2420")
         relocate("org.intellij.lang.annotations", "example.libs.intellij.lang.annotations")
         relocate("org.jetbrains.annotations", "example.libs.jetbrains.annotations")
         archiveFileName.set("${rootProject.name}-${rootProject.version}.jar")
