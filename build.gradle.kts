@@ -12,7 +12,7 @@ repositories {
     mavenLocal()
     maven("https://repo.papermc.io/repository/maven-public/")
     //CrypticLib
-    maven("https://repo.crypticlib.com/repository/maven-public/")
+    maven("https://repo2.crypticlib.com/releases/")
     mavenCentral()
 }
 
